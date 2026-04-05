@@ -90,7 +90,7 @@ header() {
 ok()    { printf "${BGREEN}  ✔  ${GREEN}%s${RST}\n" "$*"; }
 err()   { printf "${BRED}  ✘  ${RED}%s${RST}\n"    "$*"; }
 warn()  { printf "${MAGENTA}  ⚠  %s${RST}\n"        "$*"; }
-info()  { printf "${CYAN}  %s${RST}\n"              "$*"; }
+info()  { printf "${CYAN}  ✔  %s${RST}\n"              "$*"; }
 
 # Truncate a string to maximum length
 trunc() { printf '%s' "${1:0:$2}"; }
