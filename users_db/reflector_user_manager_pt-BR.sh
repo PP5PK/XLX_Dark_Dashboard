@@ -90,7 +90,7 @@ cabecalho() {
 ok()    { printf "${BGREEN}  ✔  ${GREEN}%s${RST}\n" "$*"; }
 erro()  { printf "${BRED}  ✘  ${RED}%s${RST}\n"    "$*"; }
 aviso() { printf "${MAGENTA}  ⚠  %s${RST}\n"        "$*"; }
-info()  { printf "${CYAN}  %s${RST}\n"              "$*"; }
+info()  { printf "${CYAN}  ✔  %s${RST}\n"              "$*"; }
 
 # Trunca string ao comprimento máximo
 trunc() { printf '%s' "${1:0:$2}"; }
