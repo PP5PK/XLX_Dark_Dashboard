@@ -112,9 +112,8 @@ validar_sem_virgulas() {
 
 validar_usuario_acesso() {
     local U="$1"
-    if [[ ! "$U" =~ ^[A-Z0-9]{4,8}$ ]] || \
-       [[ $(echo "$U" | grep -o '[0-9]' | wc -l) -gt 1 ]]; then
-        erro "Indicativo: 4-8 caracteres maiúsculos, máximo um dígito."
+    if [[ ! "$U" =~ ^[A-Z0-9]{3,8}$ ]]; then
+        erro "Indicativo: Ate 8 caracteres alfanumericos (A-Z, 0-9)."
         return 1
     fi
     return 0
