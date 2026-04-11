@@ -771,7 +771,7 @@ list_whitelist() {
     (( col > 0 )) && printf "\n"
 
     printf "\n"
-    info "Total: ${total} callsign(s) on the whitelist."
+    info "Total: ${total} callsigns on the whitelist."
     separator
 }
 
