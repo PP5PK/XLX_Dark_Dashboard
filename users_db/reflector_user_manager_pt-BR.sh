@@ -191,22 +191,44 @@ ler_campo() {
 
 listar_por_callsign() {
     local CALL="$1"
-    local count=0
 
     mapfile -t _LINHAS < <(buscar_linhas_por_call "$CALL")
 
-    if (( ${#_LINHAS[@]} == 0 )); then
+    local total=${#_LINHAS[@]}
+
+    if (( total == 0 )); then
         aviso "Nenhum registro encontrado para ${CALL}."
         return
     fi
 
+    # mesmas larguras de coluna usadas em consultar_base_csv
+    local W_DMR=8 W_CALL=9 W_NAME=18 W_CITY=14
+    local W_CTRY=$(( COLS - 2 - W_DMR - W_CALL - W_NAME - W_CITY ))
+    (( W_CTRY < 6 )) && W_CTRY=6
+
     printf "\n"
+    printf "${CYAN}  %-*s%-*s%-*s%-*s%-*s${RST}\n" \
+        $W_DMR  "DMRID" \
+        $W_CALL "INDICAT." \
+        $W_NAME "NOME" \
+        $W_CITY "CIDADE" \
+        $W_CTRY "PAIS"
+    separador
+
     for LN in "${_LINHAS[@]}"; do
-        (( count++ ))
-        printf "${BYELLOW}  %2d)${RST} %s\n" "$count" "$(sed -n "${LN}p" "$ARQUIVO")"
+        IFS=',' read -r _D _C _N _S _CI _E _P <<< "$(sed -n "${LN}p" "$ARQUIVO")"
+        _P="${_P%$'\r'}"
+        local nome_full="${_N} ${_S}"
+        printf "  ${DIM}%-*s${RST}${BYELLOW}%-*s${RST}${WHITE}%-*s${RST}${DIM}%-*s%-*s${RST}\n" \
+            $W_DMR  "$(trunc "$_D"        $(( W_DMR  - 1 )))" \
+            $W_CALL "$(trunc "$_C"        $(( W_CALL - 1 )))" \
+            $W_NAME "$(trunc "$nome_full" $(( W_NAME - 1 )))" \
+            $W_CITY "$(trunc "$_CI"       $(( W_CITY - 1 )))" \
+            $W_CTRY "$(trunc "$_P"        $(( W_CTRY - 1 )))"
     done
-    printf "\n"
-    info "Total: ${count} registro(s) encontrado(s)."
+
+    separador
+    printf "${DIM}  %d registro(s) encontrado(s) para "%s"${RST}\n" "$total" "$CALL"
 }
 
 buscar_linhas_por_call() {
