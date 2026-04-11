@@ -714,7 +714,11 @@ list_pending_users() {
     done < "$PENDING_FILE"
 
     printf "\n"
-    info "Total: ${count} user(s) with pending password change."
+    if (( count == 0 )); then
+        ok "No users with pending password changes."
+    else
+        info "Total: ${count} user(s) with pending password change."
+    fi
     separator
 }
 
