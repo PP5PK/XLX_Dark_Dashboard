@@ -201,7 +201,6 @@ listar_por_callsign() {
         return
     fi
 
-    # mesmas larguras de coluna usadas em consultar_base_csv
     local W_DMR=8 W_CALL=9 W_NAME=18 W_CITY=14
     local W_CTRY=$(( COLS - 2 - W_DMR - W_CALL - W_NAME - W_CITY ))
     (( W_CTRY < 6 )) && W_CTRY=6
