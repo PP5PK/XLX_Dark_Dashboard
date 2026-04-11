@@ -191,22 +191,43 @@ read_field() {
 
 list_by_callsign() {
     local CALL="$1"
-    local count=0
 
     mapfile -t _LINES < <(find_lines_by_call "$CALL")
 
-    if (( ${#_LINES[@]} == 0 )); then
+    local total=${#_LINES[@]}
+
+    if (( total == 0 )); then
         warn "No records found for ${CALL}."
         return
     fi
 
+    local W_DMR=8 W_CALL=9 W_NAME=18 W_CITY=14
+    local W_CTRY=$(( COLS - 2 - W_DMR - W_CALL - W_NAME - W_CITY ))
+    (( W_CTRY < 6 )) && W_CTRY=6
+
     printf "\n"
+    printf "${CYAN}  %-*s%-*s%-*s%-*s%-*s${RST}\n" \
+        $W_DMR  "DMRID" \
+        $W_CALL "CALLSIGN" \
+        $W_NAME "NAME" \
+        $W_CITY "CITY" \
+        $W_CTRY "COUNTRY"
+    separator
+
     for LN in "${_LINES[@]}"; do
-        (( count++ ))
-        printf "${BYELLOW}  %2d)${RST} %s\n" "$count" "$(sed -n "${LN}p" "$DB_FILE")"
+        IFS=',' read -r _D _C _N _S _CI _E _P <<< "$(sed -n "${LN}p" "$DB_FILE")"
+        _P="${_P%$'\r'}"
+        local full_name="${_N} ${_S}"
+        printf "  ${DIM}%-*s${RST}${BYELLOW}%-*s${RST}${WHITE}%-*s${RST}${DIM}%-*s%-*s${RST}\n" \
+            $W_DMR  "$(trunc "$_D"        $(( W_DMR  - 1 )))" \
+            $W_CALL "$(trunc "$_C"        $(( W_CALL - 1 )))" \
+            $W_NAME "$(trunc "$full_name" $(( W_NAME - 1 )))" \
+            $W_CITY "$(trunc "$_CI"       $(( W_CITY - 1 )))" \
+            $W_CTRY "$(trunc "$_P"        $(( W_CTRY - 1 )))"
     done
-    printf "\n"
-    info "Total: ${count} record(s) found."
+
+    separator
+    printf "${DIM}  %d record(s) found for "%s"${RST}\n" "$total" "$CALL"
 }
 
 find_lines_by_call() {
