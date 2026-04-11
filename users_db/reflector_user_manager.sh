@@ -113,7 +113,7 @@ validate_no_commas() {
 validate_callsign() {
     local U="$1"
     if [[ ! "$U" =~ ^[A-Z0-9]{3,8}$ ]]; then
-        err "Callsign: Up to 8 alphanumeric characters (A-Z, 0-9)."
+        err "Callsign: 3 to 8 alphanumeric characters (A-Z, 0-9)."
         return 1
     fi
     return 0
