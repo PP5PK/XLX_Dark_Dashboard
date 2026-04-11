@@ -771,7 +771,7 @@ listar_whitelist() {
     (( col > 0 )) && printf "\n"
 
     printf "\n"
-    info "Total: ${total} indicativo(s) na whitelist."
+    info "Total: ${total} indicativos na whitelist."
     separador
 }
 
