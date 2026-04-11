@@ -715,7 +715,11 @@ listar_pendentes() {
     done < "$PENDENTES"
 
     printf "\n"
-    info "Total: ${count} usuario(s) com senha pendente de alteracao."
+    if (( count == 0 )); then
+        ok "Nenhum usuario com senha pendente."
+    else
+        info "Total: ${count} usuario(s) com senha pendente de alteracao."
+    fi
     separador
 }
 
