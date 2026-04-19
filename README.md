@@ -57,18 +57,18 @@ Complete list of all project files organized by directory. Files marked with ✏
 ```
 /var/www/
 ├── restricted/                         ← Protected credentials area
-│   ├── .htpasswd                        Hashed user credentials
-│   └── pendentes.txt                    Pending first-login password list
+│   ├── .htpasswd                         Hashed user credentials
+│   └── pendentes.txt                     Pending first-login password list
 │
 └── html/
     └── xlxd/                           ← Main dashboard root
-        ├── index.php ✏️                  Main dashboard controller
-        ├── change_password.php ✨        Forced first-login password change
+        ├── index.php ✏️                   Main dashboard controller
+        ├── change_password.php ✨         Forced first-login password change
         │
-        ├── css/
-        │   └── layout.css ✏️            Dark theme stylesheet
+        ├── css/                        ← Defines page styles
+        │   └── layout.css ✏️             Dark theme stylesheet
         │
-        ├── img/                         Images and icons displayed on the site
+        ├── img/                        ← Images and icons displayed on the site
         │
         ├── log/                        ← Log viewer (restricted access)
         │   ├── index.php ✨              XLX Log Viewer (real-time)
@@ -76,25 +76,25 @@ Complete list of all project files organized by directory. Files marked with ✏
         │   └── export_log.php ✨         Log download endpoint
         │
         └── pgs/                        ← Tab pages, classes and utilities
-            ├── config.inc.php           Central configuration
-            ├── functions.php            Shared utility library
-            ├── country.csv              Country/prefix reference data
-            ├── users.php ✏️              Recent Activity tab
-            ├── repeaters.php ✏️          Connected Stations tab
-            ├── modules.php ✏️            Active Modules tab + chart embed
-            ├── chart.php ✨              Module activity chart (AJAX endpoint)
-            ├── peers.php ✏️              Peers tab
-            ├── reflectors.php           Reflectors tab (global XLX list)
-            ├── traffic.php ✏️            Traffic tab (VNStat bandwidth)
-            ├── liveccs.php              Live CCS tab (iframe embed)
-            ├── liveircddb.php ✨         Live ircddb tab (iframe embed)
-            ├── ircddb_proxy.php ✨       Transparent proxy for live.ircddb.net
-            ├── class.reflector.php      xReflector — top-level data model
-            ├── class.node.php           Node — connected station object
-            ├── class.station.php        Station — recent activity entry
-            ├── class.peer.php           Peer — peer reflector object
-            ├── class.interlink.php      Interlink — direct interlink object
-            └── class.parsexml.php       ParseXML — XML decoder utility
+            ├── config.inc.php             Central configuration
+            ├── functions.php              Shared utility library
+            ├── country.csv                Country/prefix reference data
+            ├── users.php ✏️               Recent Activity tab
+            ├── repeaters.php ✏️           Connected Stations tab
+            ├── modules.php ✏️             Active Modules tab + chart embed
+            ├── chart.php ✨               Module activity chart (AJAX endpoint)
+            ├── peers.php ✏️               Peers tab
+            ├── reflectors.php             Reflectors tab (global XLX list)
+            ├── traffic.php ✏️             Traffic tab (VNStat bandwidth)
+            ├── liveccs.php                Live CCS tab (iframe embed)
+            ├── liveircddb.php ✨          Live ircddb tab (iframe embed)
+            ├── ircddb_proxy.php ✨        Transparent proxy for live.ircddb.net
+            ├── class.reflector.php        xReflector — top-level data model
+            ├── class.node.php             Node — connected station object
+            ├── class.station.php          Station — recent activity entry
+            ├── class.peer.php             Peer — peer reflector object
+            ├── class.interlink.php        Interlink — direct interlink object
+            └── class.parsexml.php         ParseXML — XML decoder utility
 ```
 
 ---
