@@ -1,4 +1,4 @@
-To restrict access to the site only to users registered in .htpasswd, follow the changes below:
+To restrict access to the site only to users registered in .htpasswd (inside "restricted" folder), follow the changes below:
 
 1. On terminal, type:
 sudo nano /etc/apache2/apache2.conf
@@ -9,14 +9,10 @@ sudo nano /etc/apache2/apache2.conf
     AllowOverride All
 </Directory>
 
-<Directory /var/www/html/keys/>
-    AllowOverride All
-</Directory>
-
 3. At the end, reload the service:
 sudo systemctl reload apache2.service
 
-4. Move the "restricted" directory two levels up, inside "www". next to "http", add the following text to the beginning of index.php, right after <?php as shown below:
+4. Move the "restricted" directory two levels up, inside "www", next to "http", then add the following text to the beginning of index.php, right after <?php as shown below:
 
 <?php
 session_start();
@@ -38,6 +34,6 @@ if (in_array($cert_user, $pending_users_list)) {
     exit;
 }
 
-5. Using reflector_user_manager.sh inside /xlxd/users_db/, add the users to the list and note the temporary password created.
+5. Using reflector_user_manager.sh inside /xlxd/users_db/, add the users to the whitelist and note the temporary password created.
 Pass the data to the users and inform them that the temporary password provided must be changed upon first access,
-The system detects that the user has not changed their password and is guided to a specific page for that purpose, if they forget the password, you can generate a new one using the same manager.
+The system detects that the user has not changed their password and is guided to a specific page for that purpose, if they forget the password, you can generate a new one using the same user manager app.
