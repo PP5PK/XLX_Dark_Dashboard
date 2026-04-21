@@ -219,4 +219,4 @@ The tool also manages the `users_base.csv` database that feeds the dashboard's o
 - Search across 300 000+ entries by callsign, DMRID, name, city or country with paginated results
 - Trigger the PHP script that rebuilds the SQLite database from the CSV after bulk changes
 
-> For full documentation see [REFLECTOR_USER_MANAGER.md](REFLECTOR_USER_MANAGER.md).
+> For full documentation see [REFLECTOR_USER_MANAGER.md](users_db/REFLECTOR_USER_MANAGER.md).
