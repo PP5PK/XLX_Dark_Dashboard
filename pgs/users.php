@@ -37,7 +37,7 @@ if (isset($_GET['do'])) {
 
 
 // Reads the log tail and returns ALL modules currently transmitting (not yet closed)
-// Returns array keyed by module letter: ['D' => ['callsign' => 'PU5KOD', 'since' => 1234567], ...]
+// Returns array keyed by module letter: ['D' => ['callsign' => 'PP5PK', 'since' => 1234567], ...]
 function getAllActiveTx() {
     $logFile = '/var/log/xlx.log';
     if (!file_exists($logFile) || !is_readable($logFile)) return [];
