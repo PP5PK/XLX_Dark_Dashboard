@@ -20,7 +20,13 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now update_XLX_db.timer
 
 7. Check if the timer is active and working:
-systemctl list-timers --all | grep update_XLX_db
+sudo systemctl list-timers --all | grep update_XLX_db
+
+Manual execution:
+sudo systemctl start update_XLX_db.service
+Log query:
+sudo journalctl -u update_XLX_db.service     (all)
+sudo journalctl -u update_XLX_db.service --since "yesterday"     (from day)
 
 
 
