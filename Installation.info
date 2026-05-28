@@ -36,7 +36,10 @@ sudo journalctl -u update_XLX_db.service --since "yesterday"     (from day)
 
 Changes necessary to adapt the time zone as well as other customizations related to Apache.
 
-In /etc/php/8.x/apache2/php.ini look for the date.timezone parameter (in the file it is below "Module Settings") and set it to the correct location, in the example below it was set as date.timezone = "America/Sao_Paulo", there are other values that can also be changed at will, just don't forget to delete the ; in front of the parameter to enable it.
+In /etc/php/8.x/apache2/php.ini look for the date.timezone parameter (in the file it is below "Module Settings") and set it to the correct location.
+In the example below it was set as date.timezone = "America/Sao_Paulo", there are other values that can also be changed at will,
+just don't forget to delete the ; in front of the parameter to enable it.
+
 You can check available time zones with:
 timedatectl list-timezones | grep America
 
@@ -74,7 +77,9 @@ sudo timedatectl set-timezone America/Sao_Paulo
 After that enable ntp:
 sudo timedatectl set-ntp true
 
-In the "Network" tab, for the dates to be displayed in Portuguese, simply add the Portuguese language to those already installed on the machine, to do this, simply enter the command below and select the language pt_BR.UTF-8 UTF-8 and add it to the existing ones, it's not necessary to mark it as main, it just needs to be present in the list:
+In the "Network" tab, for the dates to be displayed in Portuguese, simply add the Portuguese language to those already installed on the machine, to do this,
+simply enter the command below and select the language pt_BR.UTF-8 UTF-8 and add it to the existing ones, it's not necessary to mark it as main,
+it just needs to be present in the list:
 sudo dpkg-reconfigure locales
 
 
