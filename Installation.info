@@ -11,13 +11,9 @@ sudo chown -R www-data:www-data /xlxd/users_db
 cd /xlxd/users_db/
 sudo ./update_db.sh 
 
-4. Create the daily update process for the callsign database:
-sudo crontab -e
-Insert the value below at the end of the file, adjust the paths if necessary:
-0 3 * * * wget -O /xlxd/users_db/user.csv https://radioid.net/static/user.csv && php /xlxd/users_db/create_user_db.php
-
-5. If you don't have the "crontab" app installed and don't want to install it, you can use systemd to perform the update procedures. Simply copy the files update_XLX_db.* located in the templates directory of the reflector installation folder to systemd:
-sudo cp /usr/src/XLX_Installer/templates/update_XLX_db* /etc/systemd/system/
+4. Create the daily update process for the callsign database just move the files update_XLX_db.* in users_db folder:
+sudo mv /xlxd/users_db/update_XLX_db.sh /usr/local/bin/
+sudo mv /xlxd/users_db/update_XLX_db.* /etc/systemd/system/
 
 6. Run the commands below to reload and activate the process:
 sudo systemctl daemon-reload
