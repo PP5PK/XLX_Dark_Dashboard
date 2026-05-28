@@ -12,7 +12,7 @@ cd /xlxd/users_db/
 sudo ./update_db.sh 
 
 4. Create the daily update process for the callsign database just move the files update_XLX_db.* in users_db folder:
-sudo mv /xlxd/users_db/update_XLX_db.sh /usr/local/bin/
+sudo mv /xlxd/users_db/update_db.sh /usr/local/bin/
 sudo mv /xlxd/users_db/update_XLX_db.* /etc/systemd/system/
 
 6. Run the commands below to reload and activate the process:
