@@ -78,6 +78,5 @@ sudo dpkg-reconfigure locales
 
 
 To-dos:
-* Detail procedures for password-protected websites;
 * Date and country selection;
 * UPnP port forwarding;
