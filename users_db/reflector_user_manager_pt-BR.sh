@@ -241,12 +241,23 @@ carregar_registro() {
     local REG
     REG=$(sed -n "${1}p" "$ARQUIVO")
     IFS=',' read -r F_DMRID F_CALL F_NOME F_SOBRENOME F_CIDADE F_ESTADO F_PAIS <<< "$REG"
+    # Remove \r de line endings Windows em todos os campos
+    F_DMRID="${F_DMRID%$'\r'}"
+    F_CALL="${F_CALL%$'\r'}"
+    F_NOME="${F_NOME%$'\r'}"
+    F_SOBRENOME="${F_SOBRENOME%$'\r'}"
+    F_CIDADE="${F_CIDADE%$'\r'}"
+    F_ESTADO="${F_ESTADO%$'\r'}"
+    F_PAIS="${F_PAIS%$'\r'}"
 }
 
 exibir_registro() {
     setup_width   # garante medidas atualizadas
     local REG="$1"
     IFS=',' read -r _D _C _N _S _CI _E _P <<< "$REG"
+    # Remove \r de line endings Windows em todos os campos
+    _D="${_D%$'\r'}"; _C="${_C%$'\r'}"; _N="${_N%$'\r'}"
+    _S="${_S%$'\r'}"; _CI="${_CI%$'\r'}"; _E="${_E%$'\r'}"; _P="${_P%$'\r'}"
     local nome_completo="$_N $_S"
     printf "${DIM}  ┌%s┐${RST}\n" "$BOX_BAR"
     printf "${DIM}  │${RST} ${CYAN}%-*s${RST} ${BWHITE}%-*s${RST} ${DIM}│${RST}\n" \

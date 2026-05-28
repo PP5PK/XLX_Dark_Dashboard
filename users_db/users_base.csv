@@ -300518,7 +300518,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7243056,PU3CSD,Claudio Sydney,Dias,Porto Alegre,Rio Grande do Sul,Brazil
 7243057,PY3NP,Emerson,Franco Correa,Porto Alegre,Rio Grande do Sul,Brazil
 7243058,PU5EGL,Gustavo,Dos Santos,Joinville Sc,Santa Catarina,Brazil
-7243059,PU5CPI,Claus I.,Gruetzmacher,Pomerode,Santa Catarina,Brazil
+7243059,PP5FOX,Claus I.,Gruetzmacher,Pomerode,Santa Catarina,Brazil
 7243060,PY3AQ,Alceu,Martinelli Moreira,Canoas,Rio Grande do Sul,Brazil
 7243061,PU5EJG,Julio Gabriel,Berndt,Florianopolis,Santa Catarina,Brazil
 7243062,PU5EJG,Julio Gabriel,Berndt,Florianopolis,Santa Catarina,Brazil
@@ -300529,7 +300529,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7243067,PU5BRW,Fabio de Lima,Garcia,CacAdor,Santa Catarina,Brazil
 7243068,PU3SVP,Flavio,Acosta,santa vitoria do palmar,Rio Grande do Sul,Brazil
 7243069,PP5IO,Ivan,De Oliveira,ItajaÍ,Santa Catarina,Brazil
-7243070,PU5CPI,Claus I.,Gruetzmacher,Pomerode,Santa Catarina,Brazil
+7243070,PP5PIX,Claus I.,Gruetzmacher,Pomerode,Santa Catarina,Brazil
 7243071,PU3RBS,Carlos,Silveira,Canoas,,Brazil
 7243072,PU5DJE,Djessly,Garcia,Sao jose,Santa Catarina,Brazil
 7243073,PU3LYB,Luciana,Blaskiewiski,Viamao,,Brazil
@@ -302676,7 +302676,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7245221,PU3RIN,Geovani da Luz,Sortica,Itaara,,Brazil
 7245222,PY3YM,Abner,Da Silva Moreira,,Rio Grande do Sul,Brazil
 7245223,PU2VXX,Erich,Bonvicini,Franco Da Rocha,Sao Paulo,Brazil
-7245224,PU5YBI,Jean,Kennedy N. Bianchi,Curitiba,Parana,Brazil
+7245224,PY5IB,Jean,Kennedy N. Bianchi,Curitiba,Parana,Brazil
 7245225,PU1JWJ,Adilson,Nantes Malheiros,Nova Iguaçu  Rj,Rio de Janeiro,Brazil
 7245226,PU1KVD,Eduardo,Cavadas,Rio De Janeiro  Rj,Rio de Janeiro,Brazil
 7245227,PU1TAG,Andre,Gula,Nova Friburgo,Rio de Janeiro,Brazil
@@ -310159,28 +310159,28 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7500001,VP8AAE,Nathan,Silveston,Stanley,All Regions,Falkland Islands
 7500002,VP8ZLU,Henry Gabriel,JERABEK,Mount Pleasant,All Regions,Falkland Islands
 7500003,VP8WA,Bobby,Short,Walker Crek,All Regions,Falkland Islands
-,PY4KDA,Repetidora,Pouso Alegre,Pouso Alegre,Minas Gerais,Brazil
-,PY2KGV,Repetidora,Joanopolis,Joanopolis,Sao Paulo,Brazil
-,PP5CPI,Repetidora,Pomerode,Pomerode,Santa Catarina,Brazil
-,PP5MFA,Repetidora,Mafra,Mafra,Santa Catarina,Brazil
-,PY2CAF,Conrado,Avila Ferreira,Sao Paulo,Sao Paulo,Brazil
-,AD8QV,Paul A.,Terlecki,Saint Joseph,Michigan,United States
-,PY4RDI,Repetidora,Ouro Preto,Ouro Preto,Minas Gerais,Brazil
-,PY2KPE,Repetidora,Caieiras,Caieiras,Sao Paulo,Brazil
-,PU2UOL,Christian,Scarabeli Matsuy,Sao Paulo,Sao Paulo,Brazil
-,PY4DG,Diorgenes,Garcia de C.,Ipatinga,Minas Gerais,Brazil
-,PY4KID,Repetidora,S. S. da Bela Vista,S. S. da Bela Vista,Minas Gerais,Brazil
-,PU2DDZ,Elton,Jose Salafia,Brasilia,DF,Brazil
-,PY4DIG,Repetidora,Ouro Branco,Ouro Branco,Minas Gerais,Brazil
-,PY4RFM,Repetidora,Pocos de Caldas,Pocos de Caldas,Minas Gerais,Brazil
-,PY2KJP,Repetidora,Atibaia,Atibaia,Sao Paulo,Brazil
-,PU4KSU,Fabio,da Costa Freitas,S. S. da B. Vista,Minas Gerais,Brazil
-,LY2BAW,Tadas,Vysniauskas,Sirvintos,Vilnius,Lithuania
-,PY4ALV,Repetidora,Estiva,Estiva,Minas Gerais,Brazil
-,PY4RPV,Repetidora,Belo Horizonte,Belo Horizonte,Minas Gerais,Brazil
-,PU2KPJ,Jair,Andrade da S. Almeida,Sao Paulo,Sao Paulo,Brazil
 ,PY2KES,Repetidora,Mogi das Cruzes,Mogi das Cruzes,Sao Paulo,Brazil
-,PY2KKV,Aleks,Mijic Estevam,Sao Paulo,Sao Paulo,Brazil
-,PP5KOD,Daniel,Kondlatsch,Mafra,Santa Catarina,Brazil
+,PU2UOL,Christian,Scarabeli Matsuy,Sao Paulo,Sao Paulo,Brazil
+,PP5CPI,Repetidora,Pomerode,Pomerode,Santa Catarina,Brazil
 ,PY4KBH,Repetidora,Corrego do Bom Jesus,Corrego do Bom Jesus,Minas Gerais,Brazil
+,PU2DDZ,Elton,Jose Salafia,Brasilia,DF,Brazil
 ,PY4RPF,Repetidora,Belo Horizonte,Belo Horizonte,Minas Gerais,Brazil
+,PY4DIG,Repetidora,Ouro Branco,Ouro Branco,Minas Gerais,Brazil
+,PY2KKV,Aleks,Mijic Estevam,Sao Paulo,Sao Paulo,Brazil
+,PU4KSU,Fabio,da Costa Freitas,S. S. da B. Vista,Minas Gerais,Brazil
+,PY4ALV,Repetidora,Estiva,Estiva,Minas Gerais,Brazil
+,PP5MFA,Repetidora,Mafra,Mafra,Santa Catarina,Brazil
+,PY4KID,Repetidora,S. S. da Bela Vista,S. S. da Bela Vista,Minas Gerais,Brazil
+,PY4KDA,Repetidora,Pouso Alegre,Pouso Alegre,Minas Gerais,Brazil
+,PY4RDI,Repetidora,Ouro Preto,Ouro Preto,Minas Gerais,Brazil
+,PY4RPV,Repetidora,Belo Horizonte,Belo Horizonte,Minas Gerais,Brazil
+,PY2KJP,Repetidora,Atibaia,Atibaia,Sao Paulo,Brazil
+,LY2BAW,Tadas,Vysniauskas,Sirvintos,Vilnius,Lithuania
+,PY2CAF,Conrado,Avila Ferreira,Sao Paulo,Sao Paulo,Brazil
+,PY4DG,Diorgenes,Garcia de C.,Ipatinga,Minas Gerais,Brazil
+,PY2KGV,Repetidora,Joanopolis,Joanopolis,Sao Paulo,Brazil
+,PP5KOD,Daniel,Kondlatsch,Mafra,Santa Catarina,Brazil
+,PY2KPE,Repetidora,Caieiras,Caieiras,Sao Paulo,Brazil
+,PU2KPJ,Jair,Andrade da S. Almeida,Sao Paulo,Sao Paulo,Brazil
+,PY4RFM,Repetidora,Pocos de Caldas,Pocos de Caldas,Minas Gerais,Brazil
+,AD8QV,Paul A.,Terlecki,Saint Joseph,Michigan,United States

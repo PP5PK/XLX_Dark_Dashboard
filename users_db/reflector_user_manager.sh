@@ -241,12 +241,23 @@ load_record() {
     local REG
     REG=$(sed -n "${1}p" "$DB_FILE")
     IFS=',' read -r F_DMRID F_CALL F_FIRSTNAME F_LASTNAME F_CITY F_STATE F_COUNTRY <<< "$REG"
+    # Strip Windows \r line endings from all fields
+    F_DMRID="${F_DMRID%$'\r'}"
+    F_CALL="${F_CALL%$'\r'}"
+    F_FIRSTNAME="${F_FIRSTNAME%$'\r'}"
+    F_LASTNAME="${F_LASTNAME%$'\r'}"
+    F_CITY="${F_CITY%$'\r'}"
+    F_STATE="${F_STATE%$'\r'}"
+    F_COUNTRY="${F_COUNTRY%$'\r'}"
 }
 
 display_record() {
     setup_width   # ensure up-to-date measurements
     local REG="$1"
     IFS=',' read -r _D _C _N _S _CI _E _P <<< "$REG"
+    # Strip Windows \r line endings from all fields
+    _D="${_D%$'\r'}"; _C="${_C%$'\r'}"; _N="${_N%$'\r'}"
+    _S="${_S%$'\r'}"; _CI="${_CI%$'\r'}"; _E="${_E%$'\r'}"; _P="${_P%$'\r'}"
     local full_name="$_N $_S"
     printf "${DIM}  ┌%s┐${RST}\n" "$BOX_BAR"
     printf "${DIM}  │${RST} ${CYAN}%-*s${RST} ${BWHITE}%-*s${RST} ${DIM}│${RST}\n" \
