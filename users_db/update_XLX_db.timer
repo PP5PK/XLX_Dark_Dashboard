@@ -1,5 +1,5 @@
 [Unit]
-Description=Run update_XLX_db.sh daily at 3am
+Description=Run update_db.sh daily at 3am
 
 [Timer]
 OnCalendar=*-*-* 03:00:00
