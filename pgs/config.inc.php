@@ -62,7 +62,7 @@ $PageOptions['ModuleNames']['Z']                     = 'Zulu';
 
 $PageOptions['MetaDescription']                      = 'XLX is a D-Star Reflector System for Ham Radio Operators.';	// Meta Tag Values, usefull for Search Engine
 $PageOptions['MetaKeywords']                         = 'Ham Radio, D-Star, XReflector, XLX, XRF, DCS, REF';		// Meta Tag Values, usefull for Search Engine
-$PageOptions['MetaAuthor']                           = 'PU5KOD';		// Meta Tag Values, usefull for Search Engine
+$PageOptions['MetaAuthor']                           = 'PP5PK';		// Meta Tag Values, usefull for Search Engine
 $PageOptions['MetaRevisit']                          = 'After 3 Days';		// Meta Tag Values, usefull for Search Engine
 $PageOptions['MetaRobots']                           = 'index,follow';		// Meta Tag Values, usefull for Search Engine
 
