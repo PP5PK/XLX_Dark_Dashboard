@@ -238,7 +238,7 @@ if (!$isAjax) {
 		echo $Reflector->GetVersion();?> - Dashboard v<?php
 		echo $PageOptions['DashboardVersion']; ?> | <?php echo $PageOptions['Footnote']; ?>
             <br />Uptime: <span id="suptime"><?php echo FormatSeconds($Reflector->GetServiceUptime());?></span>
-            <?php echo '<p><a href="https://github.com/PU5KOD/XLX_Installer"><center><img src="./img/Debian_white.png" width="50"></center></a></p>';?>
+            <?php echo '<p><a href="https://github.com/PP5PK/XLX_Installer"><center><img src="./img/Debian_white.png" width="50"></center></a></p>';?>
         </div>
         </div>
 <?php
