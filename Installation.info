@@ -2,7 +2,7 @@
 sudo apt install sqlite3 php-sqlite3
 sudo service apache2 restart
 
-2. Move the users_db folder to /xlxd/users_db/ and fix the permissions:
+2. Move the users_db/ folder to /xlxd/users_db/ and fix the permissions:
 sudo mv XLX_Dark_Dashboard/users_db/ /xlxd/
 sudo chmod -R 755 /xlxd/users_db
 sudo chown -R www-data:www-data /xlxd/users_db
@@ -11,7 +11,7 @@ sudo chown -R www-data:www-data /xlxd/users_db
 cd /xlxd/users_db/
 sudo ./update_db.sh 
 
-4. Create the daily update process for the callsign database just move the files update_XLX_db.* in users_db folder:
+4. Create the daily update process for the callsign database just move the files update_* from /xlxd/users_db/ folder:
 sudo mv /xlxd/users_db/update_db.sh /usr/local/bin/
 sudo mv /xlxd/users_db/update_XLX_db.* /etc/systemd/system/
 
@@ -21,9 +21,6 @@ sudo systemctl enable --now update_XLX_db.timer
 
 7. Check if the timer is active and working:
 systemctl list-timers --all | grep update_XLX_db
-	
-8. If you want to manually test the service:
-sudo systemctl start update_XLX_db.service
 
 
 
