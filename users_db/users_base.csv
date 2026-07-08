@@ -297494,7 +297494,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7240022,PU2ENG,Luiz,Amaral,Brasilia,Distrito Federal,Brazil
 7240023,PU2BLZ,Marcelo,Seixas,Brasilia,Distrito Federal,Brazil
 7240024,PU3CAP,Carlos,Portolan,Porto Alegre,,Brazil
-7240025,PU2LUD,Rogerio,Wenzel Cirilo,,Sao Paulo,Brazil
+7240025,PU2LUD,Rogerio,Wenzel Cirilo,Sao Paulo,Sao Paulo,Brazil
 7240026,PU2XCZ,Jaime,Francisco Ros da Cru,Itapecerica da Serra,,Brazil
 7240027,PU3RGM,Geraldo,Martins,Rio Grande,Rio Grande do Sul,Brazil
 7240028,PU2YPP,Cristiano,Santos Rocha,Sao Vicente,Sao Paulo,Brazil
@@ -298479,8 +298479,8 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7241011,PY2QH,Snard,Roberto,Aguas de Sao Pedro,Sao Paulo,Brazil
 7241012,PY2JF,Ferreira,Joao,Americana,Sao Paulo,Brazil
 7241013,PU2XII,Fernandes,Marcelo,Santos,Sao Paulo,Brazil
-7241014,PY4DG,Garcia,Diorgenes,Ipatinga,Sao Paulo,Brazil
-7241015,PY2DGC,Diorgenes,Garcia de C.,Araraquara,Sao Paulo,Brazil
+7241014,PY4DG,D. Garcia,de Carvalho,Ipatinga,Sao Paulo,Brazil
+7241015,PY2DGC,D. Garcia,de Carvalho,Araraquara,Sao Paulo,Brazil
 7241016,PY4DY,Teixeira,Gerson,Belo Horizonte,Sao Paulo,Brazil
 7241017,PU5DTH,Thomas,Dias,Sao Jose - Sc,Sao Paulo,Brazil
 7241018,PY4MAB,Mauricio,Beraldo,Pocos De Caldas,Minas Gerais,Brazil
@@ -300406,7 +300406,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7242944,PP8KGB,Wellington,Maciel,Manaus,Amazonas,Brazil
 7242945,PY6AF,Amaury,Freitas,Salvador,Bahia,Brazil
 7242946,PU2LQL,Anderson,Bueno,ourinhos,Sao Paulo,Brazil
-7242947,PU4YDZ,D. Rodrigo,P. Alvarenga,Pocos De Caldas,Minas Gerais,Brazil
+7242947,PU4YDZ,D. Rodrigo,P. Alvarenga,Pocos de Caldas,Minas Gerais,Brazil
 7242948,PY4RX,Claudio,Chicon,Sao Thome das Letras,Minas Gerais,Brazil
 7242949,PP2HM,Helio Marcelino,De Melo,Catalao,Goias,Brazil
 7242950,PU8YMJ,Junior,,BELEM,Para,Brazil
@@ -301251,7 +301251,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7243792,PY7NV,Severino,RAMIRO,GRAVATA-PE,Pernambuco,Brazil
 7243793,PU7RJB,Jesus Augusto,De Miranda Barbosa E Silva,,Pernambuco,Brazil
 7243794,PU5RFT,Ricardo,Farinhaki,Curitiba,Parana,Brazil
-7243795,PU4DDZ,Elton,Jose Salafia,CAMPO BELO,Minas Gerais,Brazil
+7243795,PU4DDZ,Elton,Jose Salafia,Campo Belo,Minas Gerais,Brazil
 7243796,PU5BXB,Roberto Ximenes,Bolsanello,Florianópolis,Santa Catarina,Brazil
 7243797,PU2NMQ,Fabio,Goncalves,Taubate,Sao Paulo,Brazil
 7243798,PT2CK,Orivaldo Das,Neves,Brasilia,Distrito Federal,Brazil
@@ -301481,10 +301481,10 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7244023,PY4CEP,Pereira,Carlos Eduardo,Divinopolis,Minas Gerais,Brazil
 7244024,PY4CH,Carlos,Peroni,Santa Luzia,Minas Gerais,Brazil
 7244025,PU4DNP,Danilo,Nonato,Ouro Preto,Minas Gerais,Brazil
-7244026,PU4DJR,Dinilson,G. da Silva Junior,Nova Lima,Minas Gerais,Brazil
+7244026,PU4DJR,Dinilson,G. da Silva Jr,Nova Lima,Minas Gerais,Brazil
 7244027,PY4ZH,Ricardo,Moreira,Sao Jose Da Barra,Minas Gerais,Brazil
 7244028,PY4WVA,Wagner,Vieira,Belo Horizonte,Minas Gerais,Brazil
-7244029,PU4DJR,Dinilson,G. da Silva Junior,Nova Lima,Minas Gerais,Brazil
+7244029,PU4DJR,Dinilson,G. da Silva Jr,Nova Lima,Minas Gerais,Brazil
 7244030,PU4XDB,Elias,Sousa,Belo Horizonte,Minas Gerais,Brazil
 7244031,PY4JA,Gleuder,Sampaio Vieira Gomes,Sete Lagoas,Minas Gerais,Brazil
 7244032,PU4LCR,Luiz Carlos,Rodrigues,Sete Lagoas,Minas Gerais,Brazil
@@ -310177,7 +310177,6 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 ,PY2KJP,Repetidora,Atibaia,Atibaia,Sao Paulo,Brazil
 ,LY2BAW,Tadas,Vysniauskas,Sirvintos,Vilnius,Lithuania
 ,PY2CAF,Conrado,Avila Ferreira,Sao Paulo,Sao Paulo,Brazil
-,PY4DG,Diorgenes,Garcia de C.,Ipatinga,Minas Gerais,Brazil
 ,PY2KGV,Repetidora,Joanopolis,Joanopolis,Sao Paulo,Brazil
 ,PP5KOD,Daniel,Kondlatsch,Mafra,Santa Catarina,Brazil
 ,PY2KPE,Repetidora,Caieiras,Caieiras,Sao Paulo,Brazil
