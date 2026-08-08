@@ -93201,7 +93201,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 2624323,DL1YAR,Winfried,,Recklinghausen,,Germany
 2624324,DO7US,Uwe,Schmitz,Braunschweig,Niedersachsen  Bremen,Germany
 2624325,DJ6KA,Gerhard,,Bielefeld,,Germany
-2624326,DA6LK,Jens,,Luebbecke,Nordrhein-Westfalen,Germany
+2624326,DA6LK,Jens,Wiemann,Luebbecke,Nordrhein-Westfalen,Germany
 2624327,DD2EE,Dieter,,Neuss,,Germany
 2624328,DB3KF,Hanni,,Korschenbroich,,Germany
 2624329,DD4KO,Olaf,,Gummersbach,,Germany
@@ -102784,7 +102784,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 2634223,DF2QZ,Hardy,,Recklinghausen,,Germany
 2634224,DO3VS,Viktor,,Oberhausen,,Germany
 2634225,DO2YJG,Joerg,,Borken,,Germany
-2634226,DO1APH,Andi,,Bochum,,Germany
+2634226,DO1APH,Andreas,Höher,Bochum,Nordrhein-Westfalen,Germany
 2634227,DO1HOP,Horst Georg,,Lippstadt,,Germany
 2634228,DO3TS,Thomas,,Bochum,,Germany
 2634229,DG7YIS,Barbara,,Hamm,,Germany
@@ -103165,7 +103165,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 2634613,DO4HRE,Rene,,Werl,,Germany
 2634614,DK1YCL,Chris,,Castrop-Rauxel,,Germany
 2634615,DM1SW,Sebastian,,Aachen,Nordrhein-Westfalen,Germany
-2634616,DL6TJ,Thomas,,Recklinghausen,,Germany
+2634616,DL6TJ,Thomas,Jaensch,Recklinghausen,Nordrhein-Westfalen,Germany
 2634617,DL5JY,Rolf Dieter,,Solingen,,Germany
 2634618,DH4JG,Joachim,,Koeln,Nordrhein-Westfalen,Germany
 2634619,DG6YHX,Michael,Adamczewsky,Stadtlohn,Nordrhein-Westfalen,Germany
@@ -107538,7 +107538,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 2681014,CT2JTY,Nicola,,Favaios,,Portugal
 2681015,CT2IOK,Jose Carlos,Silva,Grijo,Regiao Norte,Portugal
 2681016,CT1ETE,Paulo Pinto,,Guimaraes,Regiao Norte,Portugal
-2681017,CS7AFH,Joao Oliveira,,Carrazeda De Ansiaes,Regiao Norte,Portugal
+2681017,CS7AFH,Joao,Manuel F. Oliveira,Carrazeda de Ansiaes,Regiao Norte,Portugal
 2681018,CT1FJU,Vitor Melo,,Gondomar,,Portugal
 2681020,CT1DJG,Pizarro,,Vila Real,,Portugal
 2681021,CT2IKH,Leonel,,Gondamar,,Portugal
@@ -301407,7 +301407,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7243948,PU7RPL,Paulo Henrique,de Almeida Lima,CARUARU,Pernambuco,Brazil
 7243949,PU7RBE,Eduardo,Dutra,Jaboatão dos Guararapes,Pernambuco,Brazil
 7243950,PU2XMQ,Marcelo,Verissimo,Sao Paulo,Sao Paulo,Brazil
-7243951,PY2BRP,Bruno,Rodrigo Panara,Osasco SP,Sao Paulo,Brazil
+7243951,PY2BRP,Bruno,Rodrigo Panara,Osasco,Sao Paulo,Brazil
 7243952,PU2NXZ,Nuno,Cardone,Sao Paulo,Sao Paulo,Brazil
 7243953,PY2LR,Edgar,Igino,Sao Paulo,Sao Paulo,Brazil
 7243954,PU1PLI,Fabio Luiz,Carvalho,Barra Macaé,Rio de Janeiro,Brazil
@@ -301701,7 +301701,7 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 7244243,PU2PSK,Orlando,Santos,Sao Paulo,Sao Paulo,Brazil
 7244244,PY7GP,Rodrigo,Alisson,Toritama,Pernambuco,Brazil
 7244245,PY4FY,Geraldo,DE OLIVEIRA FERRAZ,FLORESTAL,Minas Gerais,Brazil
-7244246,PY5CAP,CAPUTO,Lourenco Caputo,Curitiba,Parana,Brazil
+7244246,PY5CAP,Joao,Lourenco Caputo,Curitiba,Parana,Brazil
 7244247,PU2TYB,Tadeu,TORRALVO,LIMEIRA,Sao Paulo,Brazil
 7244248,PU2RYU,Marcos,das Neves Gusmao Homem,Botucatu,Sao Paulo,Brazil
 7244249,PU2VJO,Jose,Veronese,SÃO CARLOS,Sao Paulo,Brazil
@@ -310183,3 +310183,10 @@ RADIO_ID,CALLSIGN,FIRST_NAME,LAST_NAME,CITY,STATE,COUNTRY
 ,PU2KPJ,Jair,Andrade da S. Almeida,Sao Paulo,Sao Paulo,Brazil
 ,PY4RFM,Repetidora,Pocos de Caldas,Pocos de Caldas,Minas Gerais,Brazil
 ,AD8QV,Paul A.,Terlecki,Saint Joseph,Michigan,United States
+,DB0BS,DSTAR Relais,by DL1YBL,Bochum,Nordrhein-Westfalen,Germany
+,DO1VR,Marco,Franke,Bochum,Nordrhein-Westfalen,Germany
+,N4SAX,Randall,A. Sherwood,Niceville,Florida,United States
+,PT2VHF,Alex,Rodrigues,Brasilia,Distrito Federal,Brazil
+,DO3ANT,Anthony,Schug,Bochum,Nordrhein-Westfalen,Germany
+,PT9HMT,Halonso,Mariano,Tres Lagoas,Mato Grosso do Sul,Brazil
+,VK3ZDK,Kevin,Dunleavy,Wahgunyah,Victoria,Australua
