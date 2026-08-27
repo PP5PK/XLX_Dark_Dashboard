@@ -812,57 +812,100 @@ list_whitelist() {
 search_database() {
     header "SEARCH DATABASE (RadioID)"
     printf "\n"
+    printf "  ${DIM}Combine up to 3 filters (all must match). Leave the field blank${RST}\n"
+    printf "  ${DIM}after the first one to search with just what you've picked.${RST}\n"
 
-    # ── Field selection ───────────────────────────────────────────────────────
-    printf "  Filter by:\n\n"
-    printf "  ${BYELLOW}1)${RST} Callsign  "
-    printf "${BYELLOW}2)${RST} DMRID  "
-    printf "${BYELLOW}3)${RST} Name  "
-    printf "${BYELLOW}4)${RST} City  "
-    printf "${BYELLOW}5)${RST} Country\n\n"
-    pread FIELD "Field" "[${ESCAPE}=cancel]"
-    check_escape "$FIELD" && return
+    local -a AVAIL_NUM=(1 2 3 4 5)
+    local -a AVAIL_LABEL=(Callsign DMRID Name City Country)
+    local -a SEL_FIELD=() SEL_LABEL=() SEL_TERM=()
 
-    local awk_col label
-    case "$FIELD" in
-        1) awk_col=2; label="Callsign" ;;
-        2) awk_col=1; label="DMRID"    ;;
-        3) awk_col=0; label="Name"     ;;   # 0 = search across cols 3 and 4
-        4) awk_col=5; label="City"     ;;
-        5) awk_col=7; label="Country"  ;;
-        *) err "Invalid option."; return ;;
-    esac
+    local slot
+    for slot in 1 2 3; do
+        printf "\n"
+        printf "  ${BOLD}Filter %d of 3${RST}\n\n" "$slot"
 
-    # ── Search term ───────────────────────────────────────────────────────────
-    printf "\n"
-    pread TERM "Search term (partial match)" "[${ESCAPE}=cancel]"
-    check_escape "$TERM" && return
-    [[ -z "$TERM" ]] && { err "Search term cannot be empty."; return; }
+        local shown="" n idx already sf
+        for idx in "${!AVAIL_NUM[@]}"; do
+            n="${AVAIL_NUM[$idx]}"
+            already=0
+            for sf in "${SEL_FIELD[@]}"; do [[ "$sf" == "$n" ]] && already=1; done
+            (( already )) && continue
+            shown+="${BYELLOW}${n})${RST} ${AVAIL_LABEL[$idx]}  "
+        done
+        printf "  %b\n\n" "$shown"
 
-    # ── Convert glob * to regex .* for intuitive wildcard behaviour ───────────
-    local TERM_RE="${TERM//\*/.*}"
+        local hint="[${ESCAPE}=cancel]"
+        (( slot > 1 )) && hint="[blank=search now] [${ESCAPE}=cancel]"
+        pread FIELD "Field" "$hint"
+        check_escape "$FIELD" && return
+
+        if [[ -z "$FIELD" ]]; then
+            (( slot == 1 )) && { err "Select at least one field."; continue; }
+            break
+        fi
+        if [[ ! "$FIELD" =~ ^[1-5]$ ]]; then
+            err "Invalid option."; continue
+        fi
+        already=0
+        for sf in "${SEL_FIELD[@]}"; do [[ "$sf" == "$FIELD" ]] && already=1; done
+        if (( already )); then
+            err "That field was already selected."; continue
+        fi
+
+        local label
+        case "$FIELD" in
+            1) label="Callsign" ;; 2) label="DMRID" ;; 3) label="Name" ;;
+            4) label="City"     ;; 5) label="Country" ;;
+        esac
+
+        printf "\n"
+        pread TERM "  ${label} — search term (partial match)" "[${ESCAPE}=cancel]"
+        check_escape "$TERM" && return
+        [[ -z "$TERM" ]] && { err "Search term cannot be empty."; continue; }
+
+        SEL_FIELD+=("$FIELD"); SEL_LABEL+=("$label"); SEL_TERM+=("$TERM")
+    done
+
+    # ── Build the combined awk expression (AND across every chosen filter) ────
+    local -a AWK_ARGS=() AWK_CLAUSES=()
+    local i vname term_re
+    for i in "${!SEL_FIELD[@]}"; do
+        vname="t$((i + 1))"
+        term_re="${SEL_TERM[$i]//\*/.*}"
+        AWK_ARGS+=(-v "${vname}=${term_re,,}")
+        case "${SEL_FIELD[$i]}" in
+            1) AWK_CLAUSES+=("tolower(\$2) ~ ${vname}") ;;
+            2) AWK_CLAUSES+=("tolower(\$1) ~ ${vname}") ;;
+            3) AWK_CLAUSES+=("(tolower(\$3) ~ ${vname} || tolower(\$4) ~ ${vname})") ;;
+            4) AWK_CLAUSES+=("tolower(\$5) ~ ${vname}") ;;
+            5) AWK_CLAUSES+=("tolower(\$7) ~ ${vname}") ;;
+        esac
+    done
+    local AWK_EXPR="NR>1"
+    local c
+    for c in "${AWK_CLAUSES[@]}"; do AWK_EXPR+=" && (${c})"; done
+
+    # Human-readable description of the applied filters, e.g.:
+    #   Callsign="PP5*" AND City="Mafra"
+    local FILTER_DESC=""
+    for i in "${!SEL_FIELD[@]}"; do
+        (( i > 0 )) && FILTER_DESC+=" AND "
+        FILTER_DESC+="${SEL_LABEL[$i]}=\"${SEL_TERM[$i]}\""
+    done
 
     # ── Search via awk — results stored in a temporary file ──────────────────
     local TMPFILE
     TMPFILE=$(mktemp /tmp/xlxd_query.XXXXXX)
 
     info "Searching..."
-    if [[ "$FIELD" == "3" ]]; then
-        awk -F',' -v t="${TERM_RE,,}" \
-            'NR>1 && (tolower($3) ~ t || tolower($4) ~ t)' \
-            "$DB_FILE" > "$TMPFILE"
-    else
-        awk -F',' -v col="$awk_col" -v t="${TERM_RE,,}" \
-            'NR>1 && tolower($col) ~ t' \
-            "$DB_FILE" > "$TMPFILE"
-    fi
+    awk -F',' "${AWK_ARGS[@]}" "$AWK_EXPR" "$DB_FILE" > "$TMPFILE"
 
     local total
     total=$(wc -l < "$TMPFILE")
 
     if (( total == 0 )); then
         rm -f "$TMPFILE"
-        warn "No records found for \"${TERM}\" in ${label}."
+        warn "No records found for ${FILTER_DESC}."
         return
     fi
 
@@ -907,8 +950,8 @@ search_database() {
         done < <(sed -n "${start},${end}p" "$TMPFILE")
 
         separator
-        printf "${DIM}  Page %d/%d — %d record(s) | filter: \"%s\" in %s${RST}\n" \
-            "$page" "$total_pages" "$total" "$TERM" "$label"
+        printf "${DIM}  Page %d/%d — %d record(s) | filter: %s${RST}\n" \
+            "$page" "$total_pages" "$total" "$FILTER_DESC"
 
         # Navigation controls
         if (( total_pages == 1 )); then
