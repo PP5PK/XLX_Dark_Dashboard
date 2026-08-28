@@ -220,3 +220,9 @@ The tool also manages the `users_base.csv` database that feeds the dashboard's o
 - Trigger the PHP script that rebuilds the SQLite database from the CSV after bulk changes
 
 > For full documentation see [REFLECTOR_USER_MANAGER.md](users_db/REFLECTOR_USER_MANAGER.md).
+
+---
+
+## License
+
+Released under the **The Unlicense** License. See [`LICENSE`](LICENSE) for details.
