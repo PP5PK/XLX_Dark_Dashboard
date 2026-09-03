@@ -38,9 +38,43 @@ class xReflector {
 
    public function LoadXML() {
       if ($this->XMLFile != null) {
-         $handle = fopen($this->XMLFile, 'r');
-         $this->XMLContent = fread($handle, filesize($this->XMLFile));
-         fclose($handle);
+
+      /*
+       * xlxd can temporarily truncate/rewrite the XML file while updating it.
+       * Never call fread() with a zero length and never parse incomplete XML.
+       * Retry briefly because the update normally completes within milliseconds.
+       */
+      $content = false;
+
+      for ($attempt = 0; $attempt < 3; $attempt++) {
+         clearstatcache(true, $this->XMLFile);
+
+         if (!is_readable($this->XMLFile)) {
+            return false;
+         }
+
+         $size = filesize($this->XMLFile);
+
+         if ($size !== false && $size > 0) {
+            $content = @file_get_contents($this->XMLFile);
+
+            if ($content !== false && $content !== '' && strpos($content, '<XLX') !== false) {
+               break;
+            }
+         }
+
+         $content = false;
+         usleep(50000);
+      }
+
+      if ($content === false || $content === '' || strpos($content, '<XLX') === false) {
+         $this->XMLContent = null;
+         $this->ServiceName = null;
+         $this->ReflectorName = null;
+         return false;
+      }
+
+      $this->XMLContent = $content;
 
  # XLX alphanumeric naming...
          $this->ServiceName = substr($this->XMLContent, strpos($this->XMLContent, "<XLX")+4, 3);

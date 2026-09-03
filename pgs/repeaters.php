@@ -56,26 +56,33 @@ if (isset($_GET['do'])) {
 
 // Função para obter dados do usuário do banco SQLite
 function getUserData($callsign) {
-    $dbFile = '/xlxd/users_db/users.db';
-    try {
-        $db = new SQLite3($dbFile);
-    } catch (Exception $e) {
-        return ['name' => '-', 'city_state' => '-'];
+    static $db = null;
+    static $cache = [];
+
+    $callsign = strtoupper(preg_replace('/\/.*/', '', $callsign));
+
+    if (isset($cache[$callsign])) return $cache[$callsign];
+
+    if ($db === null) {
+        try { $db = new SQLite3('/xlxd/users_db/users.db', SQLITE3_OPEN_READONLY); }
+        catch (Exception $e) { return $cache[$callsign] = ['name' => '-', 'city_state' => '-']; }
     }
-    $callsign = strtoupper(preg_replace('/\/.*/', '', $callsign)); // Remove sufixo (ex.: /R)
-    $stmt = $db->prepare('SELECT name, city_state FROM users WHERE callsign = :callsign');
+
+    $stmt = $db->prepare('SELECT name, city_state FROM users WHERE callsign = :callsign LIMIT 1');
+    if ($stmt === false) return $cache[$callsign] = ['name' => '-', 'city_state' => '-'];
     $stmt->bindValue(':callsign', $callsign, SQLITE3_TEXT);
     $result = $stmt->execute();
-    if ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+
+    if ($result && ($row = $result->fetchArray(SQLITE3_ASSOC))) {
         $data = [
-            'name' => htmlspecialchars($row['name']),
-            'city_state' => htmlspecialchars($row['city_state'])
+            'name' => htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'),
+            'city_state' => htmlspecialchars($row['city_state'], ENT_QUOTES, 'UTF-8')
         ];
     } else {
         $data = ['name' => '-', 'city_state' => '-'];
     }
-    $db->close();
-    return $data;
+    $stmt->close();
+    return $cache[$callsign] = $data;
 }
 
 ?>
