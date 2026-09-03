@@ -23,7 +23,14 @@ $Reflector->SetFlagFile("./pgs/country.csv");
 $Reflector->SetPIDFile($Service['PIDFile']);
 $Reflector->SetXMLFile($Service['XMLFile']);
 
-$Reflector->LoadXML();
+$ReflectorLoaded = $Reflector->LoadXML();
+
+if ($ReflectorLoaded === false) {
+    // xlxd may be rewriting xlxd.xml at this exact moment.
+    http_response_code(503);
+    header('Retry-After: 1');
+    exit('Reflector data is temporarily unavailable. Please retry in a moment.');
+}
 
 if ($CallingHome['Active']) {
     $CallHomeNow = false;
@@ -173,7 +180,7 @@ if (!$isAjax) {
 ?>
     <?php if (file_exists("./tracking.php")) { include_once("tracking.php"); }?>
     <div id="top" style="text-align: center;">
-        <img src="./img/header.png" alt="XLX Gateway" style="margin: 0 auto;">
+        <img src="./img/300_header.png" alt="XLX Gateway" style="margin: 0 auto;">
     </div>
     <div id="menubar">
         <div id="menu">
@@ -238,7 +245,7 @@ if (!$isAjax) {
 		echo $Reflector->GetVersion();?> - Dashboard v<?php
 		echo $PageOptions['DashboardVersion']; ?> | <?php echo $PageOptions['Footnote']; ?>
             <br />Uptime: <span id="suptime"><?php echo FormatSeconds($Reflector->GetServiceUptime());?></span>
-            <?php echo '<p><a href="https://github.com/PP5PK/XLX_Installer"><center><img src="./img/Debian_white.png" width="50"></center></a></p>';?>
+            <?php echo '<p><a href="https://github.com/PP5PK/XLX_Installer"><center><img src="./img/Magalu_cloud.svg" width="150"></center></a></p>';?>
         </div>
         </div>
 <?php
