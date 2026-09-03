@@ -1,6 +1,6 @@
 <?php
-session_start();
 session_set_cookie_params(3600); // Session expires in 1 hour
+session_start();
 if (!isset($_SESSION['csrf_token'])) {
    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
