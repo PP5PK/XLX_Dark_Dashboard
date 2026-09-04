@@ -133,7 +133,7 @@ if ($PageOptions['UserPage']['ShowFilter']) {
         <th width="40">Ctry</th>
         <th width="110">Gateway</th>
         <th width="220">Operator</th>
-        <th width="180">Last Activity</th>
+        <th width="190">Last Activity</th>
         <th width="120">Duration</th>
         <th width="100">Protocol</th>
         <th width="60">Module</th>
